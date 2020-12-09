@@ -2,7 +2,7 @@
 
 This project uses GCP App Engine to deploy WordPress inside src/{{cookiecutter.project_slug}}-installation.
 
-The contents under src/{{{{cookiecutter.theme_slug}}}} will also be deployed as part of wp-content/themes/
+The contents under src/{{cookiecutter.theme_slug}} will also be deployed as part of wp-content/themes/
 
 ## Pre-requisites
 

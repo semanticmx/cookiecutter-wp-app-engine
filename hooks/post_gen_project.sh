@@ -1,1 +1,3 @@
-# download and unzip latest WordPress
+#!/bin/bash
+
+exit 0
