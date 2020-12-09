@@ -1,6 +1,6 @@
 {
-  "environment": "stage",
+  "environment": "qa",
   "project_name": "My First WordPress Site",
-  "project-slug": "wordpress-site",
-  "theme-slug": "my-theme"
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}-{{ cookiecutter.environment.lower() }}",
+  "theme_slug": "{{ cookiecutter.project_slug }}-theme"
 }
