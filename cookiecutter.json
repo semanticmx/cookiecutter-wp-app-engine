@@ -2,7 +2,7 @@
   "environment": "qa",
   "project_name": "My First WordPress Site",
   "project_slug": "wp-{{ cookiecutter.project_name.lower().replace(' ', '-') }}-{{ cookiecutter.environment.lower() }}",
-  "theme_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}-{{ cookiecutter.environment.lower() }}",
+  "theme_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
   "db_user": "root",
   "db_pwd": "S3cr3t!"
 }

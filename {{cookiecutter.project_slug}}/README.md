@@ -16,11 +16,13 @@ The contents under src/{{cookiecutter.theme_slug}} will also be deployed as part
 1. Setup the database
 
 ```sh
-gcloud sql instances create {{cookiecutter.project_slug}}-{{cookiecutter.environment}} \
+gcloud sql instances create {{cookiecutter.project_slug}} \
     --activation-policy=ALWAYS \
 {%- if cookiecutter.environment == "qa" -%}
+
     --tier=db-f1-micro \
 {%- elif cookiecutter.environment == "prod" -%}
+
     --tier=db-n1-standard-1 \
 {% endif %}
     --region=us-central1
@@ -31,7 +33,7 @@ Please adjust tier and region accordingly.
 Now let's create the database for this instance
 
 ```sh
-gcloud sql databases create {{cookiecutter.project_slug}}-{{cookiecutter.environment}}-db --instance {{cookiecutter.project_slug}}-{{cookiecutter.environment}}
+gcloud sql databases create {{cookiecutter.project_slug}}-db --instance {{cookiecutter.project_slug}}
 ```
 
 And set a password for your instance
@@ -39,14 +41,13 @@ And set a password for your instance
 ```sh
 gcloud sql users set-password {{cookiecutter.db_user}} \
     --host=% \
-    --instance {{cookiecutter.project_slug}}-{{cookiecutter.environment}} \
+    --instance {{cookiecutter.project_slug}} \
     --password={{cookiecutter.db_pwd}} # for production use a secure password
 ```
 
 1. Install WordPress GAE tools
 
 ```sh
-
 cd src/{{ cookiecutter.project_slug }}-installation
 composer require google/cloud-tools
 ```
@@ -78,7 +79,7 @@ php vendor/bin/wp-gae update .
 1. Add your custom theme to the WordPress installation folder
 
 ```sh
-cp ../{{ cookiecutter.theme_slug }} wp-content/themes/{{ cookiecutter.theme_slug }}
+cp ../{{ cookiecutter.theme_slug }} wp-content/themes/
 ```
 
 1. Once everything is in place, deploy your project
