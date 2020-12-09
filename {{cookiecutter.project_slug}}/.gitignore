@@ -1,0 +1,29 @@
+# ignore everything in the root except the "wp-content" directory.
+src/{{ cookiecutter.project_slug }}-installation/*
+!src/{{ cookiecutter.project_slug }}-installation/wp-content/
+
+# ignore everything in the "wp-content" directory, except:
+# "mu-plugins", "plugins", "themes" directory
+src/{{ cookiecutter.project_slug }}-installation/wp-content/*
+!src/{{ cookiecutter.project_slug }}-installation/wp-content/mu-plugins/
+!src/{{ cookiecutter.project_slug }}-installation/wp-content/plugins/
+!src/{{ cookiecutter.project_slug }}-installation/wp-content/themes/
+
+# ignore these plugins
+src/{{ cookiecutter.project_slug }}-installation/wp-content/plugins/hello.php
+
+# ignore specific themes
+src/{{ cookiecutter.project_slug }}-installation/wp-content/themes/twenty*/
+
+# ignore node dependency directories
+node_modules/
+
+# ignore log files and databases
+*.log
+*.sql
+*.sqlite
+
+# ignore GCP helper files
+src/vendor
+src/composer*
+.gcloudignore
