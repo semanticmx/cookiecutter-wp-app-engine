@@ -1,0 +1,6 @@
+{
+  "environment": "stage",
+  "project_name": "My First WordPress Site",
+  "project-slug": "wordpress-site",
+  "theme-slug": "my-theme"
+}
