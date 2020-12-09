@@ -48,6 +48,7 @@ gcloud sql users set-password {{cookiecutter.db_user}} \
 1. Install WordPress GAE tools
 
 ```sh
+mkdir src/{{ cookiecutter.project_slug }}-installation
 cd src/{{ cookiecutter.project_slug }}-installation
 composer require google/cloud-tools
 ```
