@@ -27,3 +27,8 @@ node_modules/
 src/vendor
 src/composer*
 .gcloudignore
+
+# ignore terraform files
+*.plan
+*.tfstate.backup
+.terraform

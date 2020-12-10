@@ -103,7 +103,7 @@ cd {{ cookiecutter.project_slug }}-installation
 gcloud app deploy app.yaml cron.yaml --promote --stop-previous-version
 ```
 
-1. After successfully deploying WordPress to App Engine, complete the WordPress installation. 
+1. After successfully deploying WordPress to App Engine, complete the WordPress installation.
 
 The [Google Cloud Storage plugin] will already be installed, so go to WordPress Admin and activate and configure the plugin.
 
@@ -113,8 +113,8 @@ It will allow you to upload media.
 
 Based on [Run WordPress on AppEngine Standard] guide.
 
-[cloud sdk]: <https://cloud.google.com/sdk>
-[cloud sql api]: <https://console.cloud.google.com/flows/enableapi?apiid=sqladmin>
-[composer]: <https://getcomposer.org/>
-[Google Cloud Storage plugin]: <https://wordpress.org/plugins/gcs/>
-[Run WordPress on AppEngine Standard]: <https://cloud.google.com/community/tutorials/run-wordpress-on-appengine-standard>
+[cloud sdk]: https://cloud.google.com/sdk
+[cloud sql api]: https://console.cloud.google.com/flows/enableapi?apiid=sqladmin
+[composer]: https://getcomposer.org/
+[google cloud storage plugin]: https://wordpress.org/plugins/gcs/
+[run wordpress on appengine standard]: https://cloud.google.com/community/tutorials/run-wordpress-on-appengine-standard
