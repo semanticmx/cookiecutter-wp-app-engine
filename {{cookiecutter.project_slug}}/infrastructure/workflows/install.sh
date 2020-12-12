@@ -26,4 +26,6 @@ gcloud app deploy app.yaml cron.yaml --promote --stop-previous-version
 
 gsutil defacl ch -u AllUsers:R gs://{{ cookiecutter.project_slug }}-id.appspot.com
 echo -e "WordPress has been deployed!"
+echo -e ""
 echo -e "Do not forget to enable Google Cloud Storage plugin"
+echo -e ""

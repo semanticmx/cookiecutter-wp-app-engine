@@ -6,17 +6,22 @@ function createproject {
   echo -e "Creating project..."
   bash $ROOT_PATH/infrastructure/workflows/deploy.sh $2
   echo -e ""
-  echo -e "Before continuing please enable Cloud SQL Admin API"
-  echo -e "and App Engine Admin API"
+  echo -e "Before continuing please enable:"
+  echo -e "* Cloud SQL Admin API"
+  echo -e "* App Engine Admin API"
+  echo -e ""
   echo -e "https://console.cloud.google.com/apis/library?project={{ cookiecutter.project_slug }}-id&supportedpurview=project"
+  echo -e ""
+  echo -e "And setup billing for your project"
+  echo -e ""
+  echo -e "https://console.cloud.google.com/sql/instances?folder=&project={{ cookiecutter.project_slug }}-id&supportedpurview=project"
+  echo -e ""
 }
 
 function createremotedb {
   echo -e "Creating remote database..."
   bash $ROOT_PATH/infrastructure/workflows/add-mysql.sh $2
   echo -e ""
-  echo -e "Please setup a billing account"
-  echo -e "https://console.cloud.google.com/sql/instances?folder=&project={{ cookiecutter.project_slug }}-id&supportedpurview=project"
 }
 
 function decommission {
@@ -55,6 +60,19 @@ function localdb {
 
 function dbconnect {
   mysql --host=127.0.0.1 -u {{ cookiecutter.db_user}} -p{{ cookiecutter.db_pwd }} {{ cookiecutter.project_slug }}-db
+}
+
+function localstart {
+  echo -e "Initializing server at http://localhost:{{ cookiecutter.port }}"
+  echo -e ""
+  if [ -d $ROOT_PATH/src/{{ cookiecutter.project_slug }}-installation/docker-compose.yml ]
+  then
+    echo "Starting docker..."
+  else
+    echo "Configuring docker..."
+    cp -fa $ROOT_PATH/etc/docker-compose/docker-compose.yml $ROOT_PATH/src/{{ cookiecutter.project_slug }}-installation/docker-compose.yml
+  fi
+  bash $ROOT_PATH/infrastructure/workflows/local-env.sh
 }
 
 if test $1
@@ -127,6 +145,9 @@ local-db)
 db-connect)
   dbconnect
   ;;
+local-start)
+  localstart
+  ;;
 *)
   Message="Invalid argument."
   ;;
@@ -144,6 +165,7 @@ echo -e "    install:               Installs WordPress locally"
 echo -e "    local-db:              Starts Cloud SQL Proxy daemon"
 echo -e "    db-connect:            Connects to local database"
 echo -e "    update-wp:             Updates local version of WordPress including plugins and themes"
+echo -e "    local-start:           Starts local development server"
 echo -e "    re-deploy:             Re-deploys local WordPress installation"
 echo -e "====== Database Management ======"
 echo -e "    init-db:               Starts Cloud SQL database"

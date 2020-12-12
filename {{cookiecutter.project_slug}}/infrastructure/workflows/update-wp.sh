@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 if test cloud_sql_proxy
-  then
+then
+  echo -e "Updating..."
 else
   echo -e "Please install cloud_sql_proxy before using this command"
   exit 1
