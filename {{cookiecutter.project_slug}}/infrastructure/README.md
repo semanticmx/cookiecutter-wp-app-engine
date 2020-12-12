@@ -1,4 +1,4 @@
-## IaC
+## IaC Manual Steps
 
 Infrastructure as code for {{ cookiecutter.project_name }} using CGP
 

@@ -24,5 +24,5 @@ variable "project_id" {
 variable "tier" {
   description = "Database tier"
   type        = string
-  default     = "db-n1-standard-1"
+  default     = "b-n1-standard-1"
 }

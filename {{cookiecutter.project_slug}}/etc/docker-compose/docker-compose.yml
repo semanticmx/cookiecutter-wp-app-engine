@@ -1,0 +1,30 @@
+version: "3.1"
+
+services:
+  wordpress:
+    image: wordpress
+    restart: always
+    ports:
+      - {{cookiecutter.port}}:80
+    environment:
+      WORDPRESS_DB_HOST: localhost
+      WORDPRESS_DB_USER: {{cookiecutter.db_user}}
+      WORDPRESS_DB_PASSWORD: {{cookiecutter.db_pwd}}
+      WORDPRESS_DB_NAME: {{cookiecutter.project_slug}}-db
+    volumes:
+      - wordpress:/var/www/html
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: {{cookiecutter.project_slug}}-db
+      MYSQL_USER: {{cookiecutter.db_user}}
+      MYSQL_PASSWORD: {{cookiecutter.db_pwd}}
+      MYSQL_RANDOM_ROOT_PASSWORD: "1"
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  wordpress:
+  db:

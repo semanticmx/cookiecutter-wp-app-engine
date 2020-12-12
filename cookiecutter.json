@@ -4,5 +4,7 @@
   "project_slug": "wp-{{ cookiecutter.project_name.lower().replace(' ', '-') }}-{{ cookiecutter.environment.lower() }}",
   "theme_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
   "db_user": "root",
-  "db_pwd": "S3cr3t!"
+  "db_pwd": "S3cr3t!",
+  "port": "3030",
+  "db_port": "3306"
 }

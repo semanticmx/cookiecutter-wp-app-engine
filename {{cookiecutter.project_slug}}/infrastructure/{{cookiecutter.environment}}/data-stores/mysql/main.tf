@@ -23,3 +23,9 @@ resource "google_sql_database" "database" {
   name     = "{{ cookiecutter.project_slug }}-db"
   instance = google_sql_database_instance.instance.name
 }
+
+resource "google_sql_user" "users" {
+  name     = "{{ cookiecutter.db_user }}"
+  instance = google_sql_database_instance.instance.name
+  password = "{{ cookiecutter.db_pwd }}"
+}

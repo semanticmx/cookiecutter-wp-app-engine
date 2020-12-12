@@ -19,6 +19,7 @@ variable "zone" {
 variable "project_id" {
   description = "Project ID"
   type        = string
+  default     = "{{ cookiecutter.project_slug }}-id"
 }
 
 variable "tier" {
